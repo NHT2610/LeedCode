@@ -33,7 +33,7 @@ int main() {
 	getline(cin, s);
 	int target = stoi(s);
 	vector<int> result = twoSum_verOnlogn(nums, target);
-	cout << result[0] << " " << result[1] << endl;
+	cout << "[" << result[0] << "," << result[1] << "]" << endl;
 	return 0;
 }
 
