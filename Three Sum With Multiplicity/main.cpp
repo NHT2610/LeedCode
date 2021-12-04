@@ -1,15 +1,18 @@
-//https://leetcode.com/problems/3sum/
+//https://leetcode.com/problems/3sum-with-multiplicity/
 #include <iostream>
 #include <vector>
 #include <string>
-using namespace std;	
+#include <cmath>
+#include <algorithm>
+int mod = int(pow(10, 9) + 7);
+using namespace std;
 
 vector<string> split_string(const string& s);
 void input_array(vector<int>& arr, vector<string> tokens, int N);
 void merge(vector<int>& arr, vector<int>& temp, int left, int mid, int right, bool option);
 void merge_sort(vector<int>& arr, vector<int>& temp, int left, int right, bool option);
-vector<vector<int>> threeSum(vector<int>& nums);
-void output(vector<vector<int>>& result);
+int sum(int number);
+int threeSumMulti(vector<int>& nums, int target);
 
 int main() {
 	int N;
@@ -20,8 +23,10 @@ int main() {
 	getline(cin, temp_array);
 	vector<int> nums;
 	input_array(nums, split_string(temp_array), N);
-	vector<vector<int>> result = threeSum(nums);
-	output(result);
+	string s;
+	getline(cin, s);
+	int target = stoi(s);
+	cout << threeSumMulti(nums, target);
 	return 0;
 }
 
@@ -47,17 +52,6 @@ void input_array(vector<int>& arr, vector<string> tokens, int N) {
 		number = stoi(tokens[i]);
 		arr.push_back(number);
 	}
-}
-
-void output(vector<vector<int>>& result) {
-	int size = int(result.size());
-	if (size == 0) { cout << "[]" << endl; return; }
-	cout << "[";
-	for (int i = 0; i < size; ++i) {
-		if (i != size - 1) { cout << "[" << result[i][0] << "," << result[i][1] << "," << result[i][2] << "]" << ","; }
-		else { cout << "[" << result[i][0] << "," << result[i][1] << "," << result[i][2] << "]"; }
-	}
-	cout << "]";
 }
 
 void merge(vector<int>& arr, vector<int>& temp, int left, int mid, int right, bool option) {
@@ -92,26 +86,33 @@ void merge_sort(vector<int>& arr, vector<int>& temp, int left, int right, bool o
 	}
 }
 
-vector<vector<int>> threeSum(vector<int>& nums) {
-	vector<vector<int>> result;
+int sum(int number) {
+	int sum = 0;
+	for (int i = number - 1; i >= 1; --i) { sum += i; }
+	return sum;
+}
+
+int threeSumMulti(vector<int>& nums, int target) {
+	int result = 0;
 	int size = int(nums.size());
-	//Sort array nums with merge sort algorithm, time complexity: O(nlogn), memory: O(n)
 	vector<int> temp(size);
 	merge_sort(nums, temp, 0, size - 1, true);
-	//Find all three integer set, time complexity: O(n^2)
+	int left, count_l, right, count_r;
 	for (int i = 0; i < size - 2; ++i) {
-		if (nums[i] > 0) { break; }
-		if (i > 0 && nums[i] == nums[i - 1]) { continue; }
-		int left = i + 1, right = size - 1;
+		if (nums[i] > target) { break; }
+		left = i + 1; right = size - 1;
 		while (left < right) {
-			if (nums[i] + nums[left] + nums[right] == 0) {
-				result.push_back({ nums[i],nums[left++],nums[right--] });
-				while (left < right && nums[left] == nums[left - 1]) { ++left; }
-				while (left < right && nums[right] == nums[right + 1]) { --right; }
+			if (nums[i] + nums[left] + nums[right] == target) {
+				count_l = 1; count_r = 1;
+				while (left < right && nums[left] == nums[left + 1]) { ++count_l; ++left; }
+				while (right > left && nums[right - 1] == nums[right]) { ++count_r; --right; }
+				if (left < right) { result = (result + count_l * count_r) % mod; }
+				else { result = (result + sum(count_l)) % mod; }
+				++left; --right;
 			}
-			else if (nums[i] + nums[left] + nums[right] < 0) { ++left; }
-			else { --right; }
+			else if (nums[i] + nums[left] + nums[right] > target) { --right; }
+			else { ++left; }
 		}
 	}
-	return result;
+	return result % mod;
 }
