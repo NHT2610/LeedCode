@@ -6,7 +6,8 @@
 vector<string> split_string(const string& s);
 void input_list(linked_list*& list, vector<string> tokens);
 void reverse_list(Node*& head);
-
+Node* add(Node*& head, Node*& tail, int value);
+Node* remove(Node*& head);
 Node* addTwoNumbers(Node* list1, Node* list2);
 
 int main() {
@@ -65,7 +66,59 @@ void reverse_list(Node*& head) {
 	head = cur_head;
 }
 
+Node* add(Node*& head, Node*& tail, int value) {
+	if (tail == NULL) {
+		head = tail = initialize_node(value);
+		return head;
+	}
+	Node* new_node = initialize_node(value);
+	tail->next = new_node;
+	tail = new_node;
+	return head;
+}
+
+Node* remove(Node*& head) {
+	if (head == NULL) { return NULL; }
+	Node* node_del = head;
+	head = head->next;
+	delete node_del;
+	return head;
+}
+//Algorithm with time complexity: O(n) and memory: O(1)
 Node* addTwoNumbers(Node* list1, Node* list2) {
-	Node* result = new Node;
-	
+	Node* result = NULL, * tail_result = NULL;
+	Node* tail1 = list1, * tail2 = list2;
+	while (tail1->next != NULL) { tail1 = tail1->next; }
+	while (tail2->next != NULL) { tail2 = tail2->next; }
+	Node* node1 = list1, * node2 = list2;
+	int value, k = 0;
+	while (node1 != NULL && node2 != NULL) {
+		value = node1->data + node2->data + k;
+		if (value < 10) { result = add(result, tail_result, value); k = 0; }
+		else { 
+			k = int(value / 10); value = value - k * 10; 
+			result = add(result,tail_result, value); 
+		}
+		node1 = remove(list1); node2 = remove(list2);
+	}
+	while (node1 != NULL) { 
+		value = node1->data + k; 
+		if (value < 10) { result = add(result, tail_result, value); k = 0; }
+		else {
+			k = int(value / 10); value = value - k * 10;
+			result = add(result, tail_result, value);
+		}
+		node1 = remove(list1);
+	}
+	while (node2 != NULL) { 
+		value = node2->data + k; 
+		if (value < 10) { result = add(result, tail_result, value); k = 0; }
+		else {
+			k = int(value / 10); value = value - k * 10;
+			result = add(result, tail_result, value);
+		}
+		node2 = remove(list2);
+	}
+	if (k) { result = add(result, tail_result, k); }
+	return result;
 }
