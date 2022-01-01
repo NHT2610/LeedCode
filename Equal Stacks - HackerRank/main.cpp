@@ -52,15 +52,35 @@ vector<string> ParseString(string s, char token) {
     return result;
 }
 
+int FindMax(int& height1, int& height2, int& height3) {
+    int max = height1;
+    if (height2 > max) { max = height2; }
+    if (height3 > max) { max = height3; }
+    return max;
+}
+
 int equalStacks(vector<int> h1, vector<int> h2, vector<int> h3) {
     stack<int> s1, s2, s3;
-    int height1, height2, height3;
-    for (int i = 0; i < int(h1.size()); ++i) { s1.push(h1[i]); height1 += s1.top(); }
-    for (int i = 0; i < int(h2.size()); ++i) { s1.push(h2[i]); height2 += s2.top(); }
-    for (int i = 0; i < int(h3.size()); ++i) { s1.push(h3[i]); height3 += s3.top(); }
+    int height1 = 0, height2 = 0, height3 = 0;
+    for (int i = int(h1.size()) - 1; i >= 0; --i) { s1.push(h1[i]); height1 += s1.top(); }
+    for (int i = int(h2.size()) - 1; i >= 0; --i) { s2.push(h2[i]); height2 += s2.top(); }
+    for (int i = int(h3.size()) - 1; i >= 0; --i) { s3.push(h3[i]); height3 += s3.top(); }
 
+    int max;
     while (height1 != height2 || height2 != height3 || height3 != height1) {
-        
+        max = FindMax(height1, height2, height3);
+        if (max == height1) {
+            height1 -= s1.top();
+            s1.pop();
+        }
+        else if (max == height2) {
+            height2 -= s2.top();
+            s2.pop();
+        }
+        else {
+            height3 -= s3.top();
+            s3.pop();
+        }
     }
     return height1;
 }

@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Balanced Brackets - HackerR
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Equal Stacks - HackerRank", "Equal Stacks - HackerRank\Equal Stacks - HackerRank.vcxproj", "{B894D26B-D2B8-4A06-9F91-36434D8D9FFD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game of Two Stacks - HackerRank", "Game of Two Stacks - HackerRank\Game of Two Stacks - HackerRank.vcxproj", "{29C66A59-7832-40E4-AF70-38E079406AD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -121,6 +123,14 @@ Global
 		{B894D26B-D2B8-4A06-9F91-36434D8D9FFD}.Release|x64.Build.0 = Release|x64
 		{B894D26B-D2B8-4A06-9F91-36434D8D9FFD}.Release|x86.ActiveCfg = Release|Win32
 		{B894D26B-D2B8-4A06-9F91-36434D8D9FFD}.Release|x86.Build.0 = Release|Win32
+		{29C66A59-7832-40E4-AF70-38E079406AD1}.Debug|x64.ActiveCfg = Debug|x64
+		{29C66A59-7832-40E4-AF70-38E079406AD1}.Debug|x64.Build.0 = Debug|x64
+		{29C66A59-7832-40E4-AF70-38E079406AD1}.Debug|x86.ActiveCfg = Debug|Win32
+		{29C66A59-7832-40E4-AF70-38E079406AD1}.Debug|x86.Build.0 = Debug|Win32
+		{29C66A59-7832-40E4-AF70-38E079406AD1}.Release|x64.ActiveCfg = Release|x64
+		{29C66A59-7832-40E4-AF70-38E079406AD1}.Release|x64.Build.0 = Release|x64
+		{29C66A59-7832-40E4-AF70-38E079406AD1}.Release|x86.ActiveCfg = Release|Win32
+		{29C66A59-7832-40E4-AF70-38E079406AD1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
