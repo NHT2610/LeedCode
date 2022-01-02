@@ -27,6 +27,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Equal Stacks - HackerRank",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game of Two Stacks - HackerRank", "Game of Two Stacks - HackerRank\Game of Two Stacks - HackerRank.vcxproj", "{29C66A59-7832-40E4-AF70-38E079406AD1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Largest Rectangle - HackerRank", "Largest Rectangle - HackerRank\Largest Rectangle - HackerRank.vcxproj", "{2A933801-FB14-4468-BB4F-71020588F90E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simple Text Editor - HackerRank", "Simple Text Editor - HackerRank\Simple Text Editor - HackerRank.vcxproj", "{5EDF4409-2F6F-467E-BFDF-06648C07A677}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -131,6 +135,22 @@ Global
 		{29C66A59-7832-40E4-AF70-38E079406AD1}.Release|x64.Build.0 = Release|x64
 		{29C66A59-7832-40E4-AF70-38E079406AD1}.Release|x86.ActiveCfg = Release|Win32
 		{29C66A59-7832-40E4-AF70-38E079406AD1}.Release|x86.Build.0 = Release|Win32
+		{2A933801-FB14-4468-BB4F-71020588F90E}.Debug|x64.ActiveCfg = Debug|x64
+		{2A933801-FB14-4468-BB4F-71020588F90E}.Debug|x64.Build.0 = Debug|x64
+		{2A933801-FB14-4468-BB4F-71020588F90E}.Debug|x86.ActiveCfg = Debug|Win32
+		{2A933801-FB14-4468-BB4F-71020588F90E}.Debug|x86.Build.0 = Debug|Win32
+		{2A933801-FB14-4468-BB4F-71020588F90E}.Release|x64.ActiveCfg = Release|x64
+		{2A933801-FB14-4468-BB4F-71020588F90E}.Release|x64.Build.0 = Release|x64
+		{2A933801-FB14-4468-BB4F-71020588F90E}.Release|x86.ActiveCfg = Release|Win32
+		{2A933801-FB14-4468-BB4F-71020588F90E}.Release|x86.Build.0 = Release|Win32
+		{5EDF4409-2F6F-467E-BFDF-06648C07A677}.Debug|x64.ActiveCfg = Debug|x64
+		{5EDF4409-2F6F-467E-BFDF-06648C07A677}.Debug|x64.Build.0 = Debug|x64
+		{5EDF4409-2F6F-467E-BFDF-06648C07A677}.Debug|x86.ActiveCfg = Debug|Win32
+		{5EDF4409-2F6F-467E-BFDF-06648C07A677}.Debug|x86.Build.0 = Debug|Win32
+		{5EDF4409-2F6F-467E-BFDF-06648C07A677}.Release|x64.ActiveCfg = Release|x64
+		{5EDF4409-2F6F-467E-BFDF-06648C07A677}.Release|x64.Build.0 = Release|x64
+		{5EDF4409-2F6F-467E-BFDF-06648C07A677}.Release|x86.ActiveCfg = Release|Win32
+		{5EDF4409-2F6F-467E-BFDF-06648C07A677}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
