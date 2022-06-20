@@ -30,7 +30,7 @@ long long int arrayManipulation(int n, vector<vector<int>> queries) {
 		if (queries[i][1] + 1 <= n) {
 			arr[queries[i][1] + 1] -= queries[i][2];
 		}
-	}
+	}	
 	long long int _max = 0, maxCur = 0;
 	for (int i = 1; i <= n; ++i) {
 		maxCur += arr[i];
